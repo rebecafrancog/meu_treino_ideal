@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendamento - Psicólogo do Esporte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="shortcut icon" type="icone" href="img/Logo.ico">
+</head>
+
+<body class="dashboard-page">
+    <div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/Logosaude.png" alt="Logo">
+            <span>Meu Treino Ideal</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">
+                <i class="bi bi-arrow-left"></i> Dashboard
+            </a>
+            <a href="clinicogeral.html" class="sidebar-link">
+                <i class="bi bi-clipboard2-pulse"></i> Medicina Esportiva
+            </a>
+            <a href="nutricionista.html" class="sidebar-link">
+                <i class="bi bi-heart-pulse"></i> Nutrição
+            </a>
+            <a href="psicologo.html" class="sidebar-link active">
+                <i class="bi bi-emoji-smile"></i> Psicologia
+            </a>
+            <a href="personaltrainer.html" class="sidebar-link">
+                <i class="bi bi-activity"></i> Personal Trainer
+            </a>
+        </nav>
+    </aside>
+
+    <main class="content-area">
+
+        <h1 class="dashboard-title">Agendamento – Psicólogo do Esporte</h1>
+        <p class="dashboard-subtitle">
+            Preencha os dados abaixo para agendar sua consulta.
+        </p>
+
+        <div class="card">
+        <div class="card-content">
+
+            <form class="auth-form">
+
+                <div class="form-group">
+                    <label class="form-label">Nome completo:</label>
+                    <input type="text" class="form-input" name="nome">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Idade:</label>
+                    <input type="number" class="form-input" name="idade">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Modalidade Esportiva:</label>
+                    <textarea class="form-input" name="modalidade" rows="4" placeholder="Ex: Futebol, Vôlei, Atletismo, Musculação..."></textarea>
+                </div>
+
+        <label>Nível do atleta:</label>
+        <select name="nivel" class="form-select">
+            <option>Iniciante</option>
+            <option>Intermediário</option>
+            <option>Avançado</option>
+            <option>Profissional</option>
+        </select>
+
+                <div class="form-group">
+                    <label class="form-label">Objetivo Psicológico:</label>
+                    <textarea class="form-input" name="objetivo" rows="4" cols="30" placeholder="Ex: foco, controle de ansiedade, confiança, performance..."></textarea>
+                </div>
+
+
+        <label>Escolha a Psicóloga:</label>
+        <select name="psicologa" class="form-select">
+            <option>Dr. Carlos Silva</option>
+            <option>Dra. Roberta Almeida</option>
+            <option>Dra. Lúcia Ferreira</option>
+        </select>
+                <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Data da consulta:</label>
+                    <input type="date" class="form-input" name="data">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Horário:</label>
+                    <input type="time" class="form-input" name="hora">
+                </div>
+    <button type="submit" class="btn btn-primary" onclick="alert('Agendamento realizado!')">Agendar Consulta
+    </button>
+        </form>
+
+        </div>
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
+  <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2025 Meu Treino Ideal.</br>Criado por Carla Isabel, Eloisa Horacio, Emily Souza e Rebeca Franco.</p>
+        </div>
+    </footer>

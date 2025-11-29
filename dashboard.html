@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Meu Treino Ideal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="icone" href="img/Logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="dashboard-page">
+    <header class="dashboard-header">
+        <div class="container dashboard-header-content">
+            <div class="logo">
+                <img src="img/Logosaude.png" alt="logo" width="40" height="35">
+                <span class="logo-text">Meu Treino Ideal</span>
+            </div>
+            <div class="header-user">
+                <div class="user-avatar" id="userAvatar"></div>
+                <span class="user-name" id="userName"></span>
+                <button class="btn btn-outline" id="logoutBtn">
+                    <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+                    </svg>
+                    Sair
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-welcome">
+            <h1 class="dashboard-title">Bem-vindo, <span id="welcomeName"></span>!</h1>
+            <p class="dashboard-subtitle">Aqui está seu painel de controle e cronograma personalizado</p>
+        </div>
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">Quer treinar com ainda mais disposição?</h2>
+                <p class="cta-description">
+                    Seu treino merece uma trilha sonora à altura.
+                    Clique abaixo e escolha sua playlist ideal! 🎧
+                </p>
+                <button class="btn btn-dark btn-animated" onclick="window.location.href='playlists.html'">Playlists para você
+                </button>
+            </div>
+        </div>
+    </section>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon white">
+                    <img src="img/exercise.png" alt="logo" width="30" height="30">
+                </div>
+                <div class="stat-content">
+                    <p class="stat-label">Atividades/Semana</p>
+                    <p class="stat-value" id="statActivities">7</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon white">
+                    <img src="img/exercise_dumbbells.png" alt="logo" width="30" height="30">
+                </div>
+                <div class="stat-content">
+                    <p class="stat-label">Esportes Selecionados</p>
+                    <p class="stat-value" id="statSports">0</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon white">
+                    <img src="img/group.png" alt="group" width="30" height="30">
+                </div>
+                <div class="stat-content">
+                    <p class="stat-label">Faixa Etária</p>
+                    <p class="stat-value" id="statAge">-</p>
+                </div>
+            </div>
+        </div>
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="schedule">Cronograma</button>
+                <button class="tab-btn" data-tab="profile">Meu Perfil</button>
+                <button class="tab-btn" data-tab="team">Equipe</button>
+            </div>
+
+            <div class="tab-content active" id="scheduleTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Seu Cronograma Semanal</h2>
+                        <p class="card-description">Atividades personalizadas baseadas nos esportes selecionados e sua faixa etária</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table class="schedule-table">
+                                <thead>
+                                    <tr>
+                                        <th>Dia</th>
+                                        <th>Horário</th>
+                                        <th>Atividade</th>
+                                        <th>Profissional</th>
+                                        <th>Tipo</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="scheduleTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Visão Semanal</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="calendar-grid" id="calendarGrid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="profileTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Informações do Perfil
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="profile-grid" id="profileGrid">
+                        </div>
+                        <div class="profile-section">
+                            <label class="profile-label">Esportes Selecionados</label>
+                            <div class="badges-container" id="sportsBadges">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="teamTab">
+                <div class="team-professionals-grid">
+                    <div class="professional-card" onclick="alert('Psicólogo – Horário: 08h às 12h')">
+                        <img src="img/chart.png" alt="chart">
+                        <h3 class="professional-name">Dr. Carlos Silva</h3>
+                        <p class="professional-role">Psicólogo Esportivo</p>
+                        <p class="professional-description">
+                            Especialista em psicologia do esporte com foco em performance mental e desenvolvimento emocional de atletas.
+                        </p>
+                        <a href="psicologo.html">
+                        <button class="btn btn-outline btn-full">Agendar Consulta</button>
+                        </a>
+                    </div>
+
+                    <div class="professional-card" onclick="alert('Nutricionista – Horário: 13h às 17h')">
+                        <img src="img/heartbeat.png" alt="heartbeat">
+                        <h3 class="professional-name">Dra. Ana Santos</h3>
+                        <p class="professional-role">Nutricionista Esportiva</p>
+                        <p class="professional-description">
+                            Nutricionista especializada em alimentação para atletas, com planos personalizados para cada objetivo.
+                        </p>
+                        <a href="nutricionista.html">
+                        <button class="btn btn-outline btn-full">Agendar Consulta</button>
+                        </a>
+                    </div>
+
+                    <div class="professional-card" onclick="alert('Personal Trainer – Horário: 06h às 20h')">
+                        <img src="img/dumbbell.png" alt="dumbbell">
+                        <h3 class="professional-name">Prof. João Costa</h3>
+                        <p class="professional-role">Personal Trainer</p>
+                        <p class="professional-description">
+                            Personal trainer certificado com experiência em treinamento funcional e preparação física para diversos esportes.
+                        </p>
+                        <a href="personaltrainer.html">
+                        <button class="btn btn-outline btn-full">Agendar Consulta</button>
+                        </a>
+                    </div>
+
+                    <div class="professional-card" onclick="alert('Clínico Geral – Horário: 08h às 14h')">
+                        <img src="img/stethoscope.png" alt="stethoscope">
+                        <h3 class="professional-name">Dra. Maria Oliveira</h3>
+                        <p class="professional-role">Medicina Esportiva</p>
+                        <p class="professional-description">
+                            Atendimento médico clínico especializado em saúde esportiva, unindo ciência, prevenção e performance para ajudar cada paciente a alcançar seu melhor dentro e fora do treino.
+                        </p>
+                        <a href="clinicogeral.html">
+                        <button class="btn btn-outline btn-full">Agendar Consulta</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2025 Meu Treino Ideal.</br>Criado por Carla Isabel, Eloisa Horacio, Emily Souza e Rebeca Franco.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        
+        if (!currentUser) {
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('userName').textContent = currentUser.name;
+        document.getElementById('welcomeName').textContent = currentUser.name;
+        document.getElementById('userAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
+  
+        document.getElementById('statActivities').textContent = currentUser.schedules.length;
+        document.getElementById('statSports').textContent = currentUser.sports.length;
+        document.getElementById('statAge').textContent = currentUser.ageRange + ' anos';
+
+        const scheduleTableBody = document.getElementById('scheduleTableBody');
+        currentUser.schedules.forEach(schedule => {
+            const row = document.createElement('tr');
+            const badgeColor = {
+                'treino': 'badge-blue',
+                'consulta': 'badge-green',
+                'acompanhamento': 'badge-orange',
+                'grupo': 'badge-purple'
+            }[schedule.type] || 'badge-gray';
+
+            const typeLabel = {
+                'treino': 'Treino',
+                'consulta': 'Consulta',
+                'acompanhamento': 'Acompanhamento',
+                'grupo': 'Grupo'
+            }[schedule.type] || schedule.type;
+
+            row.innerHTML = `
+                <td>${schedule.day}</td>
+                <td>${schedule.time}</td>
+                <td>${schedule.activity}</td>
+                <td>${schedule.professional}</td>
+                <td><span class="badge ${badgeColor}">${typeLabel}</span></td>
+            `;
+            scheduleTableBody.appendChild(row);
+        });
+
+        const calendarGrid = document.getElementById('calendarGrid');
+        const days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'];
+        days.forEach(day => {
+            const daySchedules = currentUser.schedules.filter(s => s.day.includes(day));
+            const dayCard = document.createElement('div');
+            dayCard.className = 'calendar-day';
+            
+            let scheduleHTML = '';
+            if (daySchedules.length > 0) {
+                daySchedules.forEach(schedule => {
+                    const colorClass = {
+                        'treino': 'calendar-event-blue',
+                        'consulta': 'calendar-event-green',
+                        'acompanhamento': 'calendar-event-orange',
+                        'grupo': 'calendar-event-purple'
+                    }[schedule.type] || 'calendar-event-gray';
+
+                    scheduleHTML += `
+                        <div class="calendar-event ${colorClass}">
+                            <p class="calendar-event-time">${schedule.time}</p>
+                            <p class="calendar-event-name">${schedule.activity}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                scheduleHTML = '<p class="calendar-rest">Descanso</p>';
+            }
+
+            dayCard.innerHTML = `
+                <p class="calendar-day-name">${day}</p>
+                ${scheduleHTML}
+            `;
+            calendarGrid.appendChild(dayCard);
+        });
+
+        const profileGrid = document.getElementById('profileGrid');
+        const profileData = [
+            { label: 'Nome Completo', value: currentUser.name },
+            { label: 'Nome de Usuário', value: currentUser.username },
+            { label: 'Email', value: currentUser.email },
+            { label: 'CPF', value: currentUser.cpf },
+            { label: 'Telefone', value: currentUser.phone },
+            { label: 'Gênero', value: currentUser.gender.charAt(0).toUpperCase() + currentUser.gender.slice(1) },
+            { label: 'Faixa Etária', value: currentUser.ageRange + ' anos' },
+            { label: 'CEP', value: currentUser.cep },
+            { label: 'Endereço', value: `${currentUser.address}, ${currentUser.city} - ${currentUser.state}`, fullWidth: true },
+            { label: 'ID de Usuário', value: '#' + currentUser.id, fullWidth: true }
+        ];
+
+        profileData.forEach(item => {
+            const div = document.createElement('div');
+            div.className = item.fullWidth ? 'profile-item profile-item-full' : 'profile-item';
+            div.innerHTML = `
+                <label class="profile-label">${item.label}</label>
+                <p class="profile-value">${item.value}</p>
+            `;
+            profileGrid.appendChild(div);
+        });
+
+        const sportsBadges = document.getElementById('sportsBadges');
+        currentUser.sports.forEach(sport => {
+            const badge = document.createElement('span');
+            badge.className = 'badge badge-secondary';
+            badge.textContent = sport;
+            sportsBadges.appendChild(badge);
+        });
+
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(tabName + 'Tab').classList.add('active');
+            });
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
